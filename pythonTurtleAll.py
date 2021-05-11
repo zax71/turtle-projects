@@ -24,6 +24,17 @@ def polygon(angle, lineLen, sides):#function by Zac :)
         t.fd(lineLen)
         t.lt(angle)
 
+#rectangle no fill
+def rectNoFill(x, y):
+    t.fd(x)
+    t.lt(90)
+    t.fd(y)
+    t.lt(90)
+    t.fd(x)
+    t.lt(90)
+    t.fd(y)
+    t.lt(90)    
+
 
 
 selection = input("what task do you want to run? (1, 2, 3, 4 ect) ")
@@ -61,7 +72,9 @@ elif selection == "8":
     print("it draws 2 squares")
 
     rect(100, 100, "white", "black")
-    t.fd(25)
+    t.penup()
+    t.fd(120)
+    t.pendown()
     rect(100, 100, "white", "black")
     
 elif selection == "9":
@@ -77,6 +90,26 @@ elif selection == "9":
         for i in range(4):
             t.fd(100)
             t.lt(90)
+
+elif selection == "10":
+    polygon(144, 100, 5)
+
+elif selection == "11":
+    t.penup()
+    t.goto(300, 0)
+    t.pendown()
+    for i in range(4):
+        polygon(144, 100, 5)
+        t.penup()
+        t.fd(120)
+        t.pendown()
+
+elif selection == "12":
+    polygon(198, 100, 20)
+
+elif selection == "13":
+    for i in range(0, 9):
+        rectNoFill(i*10, i*10)
     
 else:
     print("type a number that i have ya numpty")
