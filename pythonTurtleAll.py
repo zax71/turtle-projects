@@ -19,7 +19,7 @@ def rect(x, y, fcol, pcol):
     t.penup()
 
 #polyunction
-def polygon(angle, lineLen, sides):#function by Zac :)
+def polygon(angle, lineLen, sides):
     for i in range(0, sides):
         t.fd(lineLen)
         t.lt(angle)
@@ -96,7 +96,7 @@ elif selection == "10":
 
 elif selection == "11":
     t.penup()
-    t.goto(300, 0)
+    t.goto(-300, 0)
     t.pendown()
     for i in range(4):
         polygon(144, 100, 5)
@@ -108,10 +108,53 @@ elif selection == "12":
     polygon(198, 100, 20)
 
 elif selection == "13":
-    for i in range(0, 9):
-        rectNoFill(i*10, i*10)
+    standard = input("do you want the standdard one? (y/n)")
     
+    if standard == "n":
+        
+        size = input("how big do you want? (pick 9 for the standard project!)")
+        D3 = input("do you want 3D? (y/n)")
+        
+        t.goto(0, 0)
+        for i in range(0, int(size)):
+            rectNoFill(i*10, i*10)
+
+        if D3 == "y":
+            t.setheading(t.towards(int(size), int(size)))
+            t.fd(int(size)*10)
+            t.penup()
+            t.fd(40)
+            t.pendown()
+
+
+    else:
+        for i in range(0, 9):
+                rectNoFill(i*10, i*10)
+elif selection == "14":
+    print("this program makes a shape with angles of 30o with a configurable ammount of sides")
+    print("2 & 3 are dealing with a variable to set the sides \n")
+
+    sides = int(input("how many sides?"))
+    t.pencolor("red")
+    polygon(30, 50, sides)
+
+elif selection == "15":
+    sides = int(input("how many sides?"))
+    color = input("what colour?")
+    t.pencolor(color)
+    polygon(30, 50, sides)
+
+elif selection == "16":
+    for i in range(5):
+        print((i+3-2)*180/(i+3))
+
+elif selection == "17":
+    angle = 0
+    sides = int(input("number of sides"))
+    
+    angle = (angle - 2)*180/sides
+    
+    polygon(angle, 50, sides)
 else:
     print("type a number that i have ya numpty")
-    
     
